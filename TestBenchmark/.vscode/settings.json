@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/.sln": true,
+        "**/.svn": false,
+        "**/.vscode": true,
+        "**/*.svn": true,
+        "**/bin": true,
+        "**/obj": true
+    }
+}
