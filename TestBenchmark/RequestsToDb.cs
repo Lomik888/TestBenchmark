@@ -8,6 +8,7 @@ namespace TestBenchmark
     [MemoryDiagnoser]
     public class RequestsToDb
     {
+        // Смапить всех сотрудников в EmployeesResultDto  компании 0023cb5a-57c0-4689-9a77-cea7623f6899
         public readonly IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
                    cfg.AddProfile<MapperProfile>()));
 
@@ -15,7 +16,6 @@ namespace TestBenchmark
         public void RequestsWithLardgeDbBad()
         {
             List<OrganizationEntity> org;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdb;Username=postgres;Password=1234"))
             {
                 org = dbContext.Organizations
@@ -36,7 +36,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNotWorst()
         {
             List<PeopleEntity> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdb;Username=postgres;Password=1234"))
             {
                 var data = await dbContext.Organizations
@@ -57,7 +56,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNormalAsNoTracking()
         {
             List<EmployeesResultDto> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdb;Username=postgres;Password=1234"))
             {
                 emp = await dbContext.Organizations
@@ -79,7 +77,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNormalTracking()
         {
             List<EmployeesResultDto> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdb;Username=postgres;Password=1234"))
             {
                 emp = await dbContext.Organizations
@@ -100,7 +97,6 @@ namespace TestBenchmark
         public void RequestsWithLardgeDbBadSmall()
         {
             List<OrganizationEntity> org;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdbsmall;Username=postgres;Password=1234"))
             {
                 org = dbContext.Organizations
@@ -121,7 +117,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNotWorstSmall()
         {
             List<PeopleEntity> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdbsmall;Username=postgres;Password=1234"))
             {
                 var data = await dbContext.Organizations
@@ -142,7 +137,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNormalAsNoTrackingSmall()
         {
             List<EmployeesResultDto> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdbsmall;Username=postgres;Password=1234"))
             {
                 emp = await dbContext.Organizations
@@ -164,7 +158,6 @@ namespace TestBenchmark
         public async Task RequestsWithLardgeDbNormalTrackingSmall()
         {
             List<EmployeesResultDto> emp;
-            // Хочу посмотреть информацию(FirstName, LastName, Compliments.Count) о сотрудниках компании 0023cb5a-57c0-4689-9a77-cea7623f6899
             using (var dbContext = new ApplicationDbContext("Host=localhost;Database=testdbsmall;Username=postgres;Password=1234"))
             {
                 emp = await dbContext.Organizations
