@@ -146,3 +146,4 @@
 /home/dunice/Desktop/testproject/TestBenchmark/obj/Release/net8.0/TestBenchmark.pdb
 /home/dunice/Desktop/testproject/TestBenchmark/obj/Release/net8.0/TestBenchmark.genruntimeconfig.cache
 /home/dunice/Desktop/testproject/TestBenchmark/obj/Release/net8.0/ref/TestBenchmark.dll
+/home/dunice/Desktop/testproject/TestBenchmark/obj/Release/net8.0/TestBenchmark.sourcelink.json

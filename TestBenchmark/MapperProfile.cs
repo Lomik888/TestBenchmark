@@ -12,6 +12,7 @@ namespace TestBenchmark
         public MapperProfile()
         {
             CreateMap<PeopleClass, PeopleEntity>();
+            CreateMap<PeopleEntity, EmployeesResultDto>();
             CreateMap<OrganizationClass, OrganizationEntity>();
             CreateMap<ComplimentClass, ComplimentEntity>();
         }

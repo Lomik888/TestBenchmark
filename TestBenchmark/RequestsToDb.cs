@@ -1,3 +1,4 @@
+using AutoMapper;
 using BenchmarkDotNet.Attributes;
 using Microsoft.EntityFrameworkCore;
 using TestBenchmark.Entities;
@@ -7,6 +8,9 @@ namespace TestBenchmark
     [MemoryDiagnoser]
     public class RequestsToDb
     {
+        public readonly IMapper mapper = new Mapper(new MapperConfiguration(cfg =>
+                   cfg.AddProfile<MapperProfile>()));
+
         [Benchmark]
         public void RequestsWithLardgeDbBad()
         {
@@ -20,11 +24,11 @@ namespace TestBenchmark
                 .ToList();
             }
 
-            var emp = org.FirstOrDefault(x => x.Id.ToString() == "148e779e-8982-4f44-8682-c04472c752dd")!.Employees!.ToList();
+            var emp = mapper.Map<List<EmployeesResultDto>>(org.FirstOrDefault(x => x.Id.ToString() == "148e779e-8982-4f44-8682-c04472c752dd")!.Employees!.ToList());
 
             foreach (var e in emp)
             {
-                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.Compliments?.Count}");
+                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.ComplimentsCount}");
             }
         }
 
@@ -43,9 +47,9 @@ namespace TestBenchmark
                 emp = data!.Employees!;
             }
 
-            foreach (var e in emp)
+            foreach (var e in mapper.Map<List<EmployeesResultDto>>(emp))
             {
-                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.Compliments?.Count}");
+                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.ComplimentsCount}");
             }
         }
 
@@ -105,11 +109,11 @@ namespace TestBenchmark
                 .ToList();
             }
 
-            var emp = org.FirstOrDefault(x => x.Id.ToString() == "148e779e-8982-4f44-8682-c04472c752dd")!.Employees!.ToList();
+            var emp = mapper.Map<List<EmployeesResultDto>>(org.FirstOrDefault(x => x.Id.ToString() == "148e779e-8982-4f44-8682-c04472c752dd")!.Employees!.ToList());
 
             foreach (var e in emp)
             {
-                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.Compliments?.Count}");
+                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.ComplimentsCount}");
             }
         }
 
@@ -128,9 +132,9 @@ namespace TestBenchmark
                 emp = data!.Employees!;
             }
 
-            foreach (var e in emp)
+            foreach (var e in mapper.Map<List<EmployeesResultDto>>(emp))
             {
-                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.Compliments?.Count}");
+                System.Console.WriteLine($"{e.FirstName} {e.LastName} {e.ComplimentsCount}");
             }
         }
 

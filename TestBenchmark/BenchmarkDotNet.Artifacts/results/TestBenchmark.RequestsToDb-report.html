@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>TestBenchmark.RequestsToDb-20241101-094032</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+Intel Core i5-10400 CPU 2.90GHz, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 8.0.110
+  [Host]     : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method                               </th><th>Mean    </th><th>Error </th><th>StdDev</th><th>Gen0 </th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>RequestsWithLardgeDbBad</td><td>6,061,090.7 &mu;s</td><td>70,921.32 &mu;s</td><td>66,339.85 &mu;s</td><td>117000.0000</td><td>42000.0000</td><td>3000.0000</td><td>765540.41 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNotWorst</td><td>1,139.9 &mu;s</td><td>22.72 &mu;s</td><td>31.84 &mu;s</td><td>23.4375</td><td>3.9063</td><td>-</td><td>164.95 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNormalAsNoTracking</td><td>2,308.8 &mu;s</td><td>29.15 &mu;s</td><td>27.27 &mu;s</td><td>7.8125</td><td>-</td><td>-</td><td>64.67 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNormalTracking</td><td>2,293.0 &mu;s</td><td>13.62 &mu;s</td><td>12.07 &mu;s</td><td>7.8125</td><td>-</td><td>-</td><td>64.31 KB</td>
+</tr><tr><td>RequestsWithLardgeDbBadSmall</td><td>354,887.4 &mu;s</td><td>7,050.94 &mu;s</td><td>15,770.44 &mu;s</td><td>12000.0000</td><td>5000.0000</td><td>1000.0000</td><td>77051.94 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNotWorstSmall</td><td>1,152.4 &mu;s</td><td>23.03 &mu;s</td><td>39.11 &mu;s</td><td>23.4375</td><td>3.9063</td><td>-</td><td>164.95 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNormalAsNoTrackingSmall</td><td>854.5 &mu;s</td><td>14.67 &mu;s</td><td>13.72 &mu;s</td><td>9.7656</td><td>-</td><td>-</td><td>64.93 KB</td>
+</tr><tr><td>RequestsWithLardgeDbNormalTrackingSmall</td><td>849.0 &mu;s</td><td>11.14 &mu;s</td><td>10.42 &mu;s</td><td>9.7656</td><td>-</td><td>-</td><td>64.33 KB</td>
+</tr></tbody></table>
+</body>
+</html>
